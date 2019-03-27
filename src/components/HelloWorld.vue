@@ -6,17 +6,24 @@
     <p>用户名为:{{user}}</p>
     <p>子组件的数据为:{{dataChi}}</p>
     <m-ain :obj="datas"></m-ain>
+    <this-input @message="receiveMsg"></this-input>
+    <this-dialog></this-dialog>
   </div>
 </template>
 
 <script>
 import MyComponent from "./MyComponent";
 import Main from "./Main";
+import thisInput from "./input";
+import thisDialog from "./dialog";
+// import Vue from "vue"
 export default {
   name: "HelloWorld",
   data() {
     return {
+      // Bus:new Vue({}),
       dataChi:'',
+      flag:false,
       datas:'我要向子组件传递数据',
       user:'',
       msg: "Welcome to Your Vue.js App",
@@ -40,9 +47,12 @@ export default {
     getChildData(data,username){
       this.dataChi = data
       console.log(data,username);
+    },
+    receiveMsg(val){
+      this.flag = val;
     }
   },
-  components: { Mycomponent: MyComponent,MAin:Main }
+  components: { Mycomponent: MyComponent,MAin:Main,thisInput:thisInput,thisDialog:thisDialog }
 };
 </script>
 
