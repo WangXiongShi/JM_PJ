@@ -5,16 +5,19 @@
     <mycomponent :dataList="dataList" :msg="param" @transferUser="getUser" @transToParam="getChildData"></mycomponent>
     <p>用户名为:{{user}}</p>
     <p>子组件的数据为:{{dataChi}}</p>
+    <m-ain :obj="datas"></m-ain>
   </div>
 </template>
 
 <script>
 import MyComponent from "./MyComponent";
+import Main from "./Main";
 export default {
   name: "HelloWorld",
   data() {
     return {
       dataChi:'',
+      datas:'我要向子组件传递数据',
       user:'',
       msg: "Welcome to Your Vue.js App",
       param:'父组件的参数',
@@ -39,7 +42,7 @@ export default {
       console.log(data,username);
     }
   },
-  components: { Mycomponent: MyComponent }
+  components: { Mycomponent: MyComponent,MAin:Main }
 };
 </script>
 
