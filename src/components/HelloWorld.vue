@@ -2,8 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <mycomponent :dataList="dataList" :msg="param" @transferUser="getUser"></mycomponent>
+    <mycomponent :dataList="dataList" :msg="param" @transferUser="getUser" @transToParam="getChildData"></mycomponent>
     <p>用户名为:{{user}}</p>
+    <p>子组件的数据为:{{dataChi}}</p>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
   name: "HelloWorld",
   data() {
     return {
+      dataChi:'',
       user:'',
       msg: "Welcome to Your Vue.js App",
       param:'父组件的参数',
@@ -31,6 +33,10 @@ export default {
   methods:{
     getUser(msg){
       this.user = msg;
+    },
+    getChildData(data,username){
+      this.dataChi = data
+      console.log(data,username);
     }
   },
   components: { Mycomponent: MyComponent }
