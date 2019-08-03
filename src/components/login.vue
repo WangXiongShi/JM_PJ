@@ -4,6 +4,7 @@
         <input type="text">
         密码:
         <input type="password" name="" id="">
+        actualCombat分支
     </div>
 </template>
 
