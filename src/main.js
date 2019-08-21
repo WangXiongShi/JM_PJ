@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Bus from './components/eventBus'
+Vue.prototype.$bus = Bus
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
