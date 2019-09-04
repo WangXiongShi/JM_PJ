@@ -9,6 +9,7 @@ export default {
         this.$on('dang_qian',param=>{
             console.log(param);
         })
+        this.$emit("mounted",'我是子组件的mounted事件');
     },
     methods:{
         handleClick(){

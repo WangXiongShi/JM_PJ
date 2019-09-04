@@ -1,7 +1,7 @@
 <template>
 <div class="main">
   <P>BUS</P>
-    <v-email></v-email>
+    <v-email @mounted="doSomething"></v-email>
     <v-tel></v-tel>
     <p>Class 可以通过对象语法和数组语法进行动态绑定：</p>
     <div v-bind:class="{ active: isActive, 'text-danger': hasError }">
@@ -42,6 +42,11 @@ export default {
             styleSize:{
                 fontSize:'23px'
             }
+        }
+    },
+    methods:{
+        doSomething(val){
+            console.log(val);
         }
     },
     components:{
